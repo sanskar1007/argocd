@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: app-slack-notification-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: slack-notification
+        image: curlimages/curl
+        command:
+          - "curl"
+          - "-X"
+          - "POST"
+          - "https://api.flock.com/hooks/sendMessage/658ad398-067c-43c1-9370-bf8d48d54ba0"
+          - "-H"
+          - "Content-Type: application/json"
+          - "-d"
+          - '{"text": "Job Completed"}'
+      restartPolicy: Never
+  backoffLimit: 2
