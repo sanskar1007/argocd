@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1 
+kind: Application
+metadata:
+  name: flock-job
+  namespace: argocd 
+spec:
+  project: default 
+  source:
+    repoURL: git@github.com:sanskar1007/argocd.git 
+    targetRevision: HEAD
+    path: hook
+  destination:
+    server: https://kubernetes.default.svc 
+    namespace: argocd

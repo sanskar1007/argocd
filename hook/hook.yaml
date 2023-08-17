@@ -15,10 +15,8 @@ spec:
           - "curl"
           - "-X"
           - "POST"
-          - "https://api.flock.com/hooks/sendMessage/658ad398-067c-43c1-9370-bf8d48d54ba0"
-          - "-H"
-          - "Content-Type: application/json"
           - "-d"
           - '{"text": "Job Completed"}'
+          - "https://api.flock.com/hooks/sendMessage/658ad398-067c-43c1-9370-bf8d48d54ba0"
       restartPolicy: Never
-  backoffLimit: 2
+  backoffLimit: 1
