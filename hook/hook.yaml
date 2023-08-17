@@ -16,7 +16,7 @@ spec:
           - "-X"
           - "POST"
           - "-d"
-          - '{"text": "Job Completed"}'
+          - "payload={\"text\": \" Job Completed\"}"
           - "https://api.flock.com/hooks/sendMessage/658ad398-067c-43c1-9370-bf8d48d54ba0"
       restartPolicy: Never
-  backoffLimit: 1
+  backoffLimit: 2
